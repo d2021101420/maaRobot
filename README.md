@@ -3,10 +3,10 @@
 
 <b>Robo com laser 360º</b>
 
-Mauricio Andre de Almeida
-Mestrando em Ciência e Tecnologia da Computação
-Universidade Federal de Itajubá
-Matrícula 2021101420
+<p>Mauricio Andre de Almeida</p>
+<p>Mestrando em Ciência e Tecnologia da Computação</p>
+<p>Universidade Federal de Itajubá</p>
+<p>Matrícula 2021101420</p>
 
 ![demo.gif animation](resources/maa_robot2.gif)
 
@@ -31,7 +31,7 @@ ros2 launch maa_robot_spawner_pkg gazebo_world.launch.py
 
 Fontes usadas neste trabalho:
 
-https://github.com/chapulina/dolly
-https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html
-https://automaticaddison.com/how-to-simulate-a-robot-using-gazebo-and-ros-2/
+<p>https://github.com/chapulina/dolly</p>
+<p>https://docs.ros.org/en/foxy/Tutorials/Workspace/Creating-A-Workspace.html</p>
+<p>https://automaticaddison.com/how-to-simulate-a-robot-using-gazebo-and-ros-2/</p>
 
