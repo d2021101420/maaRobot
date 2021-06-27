@@ -1,0 +1,61 @@
+https://automaticaddison.com/how-to-simulate-a-robot-using-gazebo-and-ros-2/
+
+1 - Criar o modelo:
+1.1 - Criar o diretorio do modelo
+		mkdir -p ~/.gazebo/models/maa_robot
+1.2 - Criar o arquivo 
+		gedit ~/.gazebo/models/mobile_warehouse_robot/model.config
+1.3 - Download Mesh file e Laser Range
+	   cd ~/.gazebo/models
+	   wget -q -R *index.html*,*.tar.gz --no-parent -r -x -nH http://models.gazebosim.org/warehouse_robot/
+	   wget -q -R *index.html*,*.tar.gz --no-parent -r -x -nH http://models.gazebosim.org/hokuyo/
+1.4 - Criar Model.sdf
+       gedit ~/.gazebo/models/maa_robot/model.sdf
+2- Criar o modelo do cenario
+     mkdir -p ~/.gazebo/models/maa_cenario
+	  gedit ~/.gazebo/models/maa_cenario/model.config
+	  gedit ~/.gazebo/models/maa_cenario/model.sdf
+	  
+	  cd ~/ws/src/
+      ros2 pkg create --build-type ament_python maa_robot_pkg
+      cd maa_robot_pkg/
+      gedit package.xml 
+      gedit setup.py
+	  
+	   cd ~/ws/src/
+      ros2 pkg create --build-type ament_python maa_robot_spawner_pkg
+
+     mkdir -p ~/ws/src/maa_robot_spawner_pkg/models
+	 cd ~/.gazebo/models
+	 cp -r maa_robot ~/ws/src/maa_robot_spawner_pkg/models
+	 cp -r maa_cenario ~/ws/src/maa_robot_spawner_pkg/models
+	 
+	 cp -r warehouse_robot ~/ws/src/maa_robot_spawner_pkg/models
+	 
+	 cp -r hokuyo ~/ws/src/maa_robot_spawner_pkg/models
+	 
+	  mkdir -p ~/ws/src/maa_robot_spawner_pkg/worlds
+	  cd  ~/ws/src/maa_robot_spawner_pkg/worlds
+	  gedit warehouse.world
+	  
+	  cd ~/ws/src/maa_robot_spawner_pkg/maa_robot_spawner_pkg/
+	  gedit spawn_demo.py
+	  
+	  mkdir ~/ws/src/maa_robot_spawner_pkg/launch/
+	  cd ~/ws/src/maa_robot_spawner_pkg/launch/
+	  gedit gazebo_world.launch.py
+	  
+	  Build the Package
+	  
+	  cd ~/ws
+	  
+	  sudo pip3 install setuptools
+	  
+	  colcon build --packages-select maa_robot_spawner_pkg
+	  
+	  	  cd ~/ws
+	  ros2 launch maa_robot_spawner_pkg gazebo_world.launch.py
+	  
+	  
+	  
+	  
